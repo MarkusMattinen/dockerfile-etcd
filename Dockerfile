@@ -1,5 +1,6 @@
 # etcd on trusty
 FROM markusma/base:trusty
+MAINTAINER Markus Mattinen <docker@gamma.fi>
 
 RUN apt-get update \
  && apt-get install -y golang git
