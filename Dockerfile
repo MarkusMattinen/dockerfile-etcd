@@ -15,7 +15,8 @@ RUN cd /tmp \
  && rm -rf /tmp/etcd-v$ETCD_VERSION-linux-amd64.tar.gz /tmp/etcd-v$ETCD_VERSION-linux-amd64
 
 ADD config/etc/etcd /etc/etcd
+ADD config/init /init
 
 EXPOSE 4001 7001
 VOLUME ["/data"]
-ENTRYPOINT ["/usr/local/bin/etcd"]
+CMD ["/init"]

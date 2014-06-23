@@ -1,0 +1,4 @@
+#!/bin/sh
+
+localip=$(ip a show dev eth0 | grep 'inet ' | awk '{print $2}' | cut -d'/' -f1)
+exec etcd -peer-addr=${localip}:7001 -addr=${localip}:4001 -name=${localip}
