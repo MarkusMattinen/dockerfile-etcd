@@ -1,5 +1,5 @@
-# etcd on trusty
-FROM markusma/base:trusty
+# etcd and supervisord on trusty
+FROM markusma/supervisord:trusty
 MAINTAINER Markus Mattinen <docker@gamma.fi>
 
 RUN apt-get update \
@@ -16,6 +16,7 @@ RUN cd /tmp \
 
 ADD config/etc/etcd /etc/etcd
 ADD config/init /init
+ADD config/etc/supervisor/conf.d/etcd.conf /etc/supervisor/conf.d/etcd.conf
 
 EXPOSE 4001 7001
 VOLUME ["/data"]

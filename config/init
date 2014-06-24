@@ -1,4 +1,10 @@
 #!/bin/sh
 
 localip=$(ip a show dev eth0 | grep 'inet ' | awk '{print $2}' | cut -d'/' -f1)
-exec etcd -peer-addr=${localip}:7001 -addr=${localip}:4001 -name=${localip}
+export ETCD_PEER_ADDR=${localip}:7001
+export ETCD_PEER_BIND_ADDR=${localip}:7001
+export ETCD_ADDR=${localip}:4001
+export ETCD_BIND_ADDR=${localip}:4001
+export ETCD_NAME=${localip}
+
+exec /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
