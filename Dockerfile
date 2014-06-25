@@ -23,5 +23,4 @@ ADD config/init /init
 ADD config/etc/supervisor/conf.d/etcd.conf /etc/supervisor/conf.d/etcd.conf
 
 EXPOSE 4001 7001
-VOLUME ["/data"]
 CMD ["/init"]
