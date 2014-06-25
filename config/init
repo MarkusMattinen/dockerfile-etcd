@@ -1,5 +1,7 @@
 #!/bin/sh
 
+rm -rf /data/*
+
 localip=$(ip a show dev eth0 | grep 'inet ' | awk '{print $2}' | cut -d'/' -f1)
 export ETCD_PEER_ADDR=${localip}:7001
 export ETCD_PEER_BIND_ADDR=${localip}:7001
