@@ -2,7 +2,7 @@
 FROM markusma/supervisord:trusty
 MAINTAINER Markus Mattinen <docker@gamma.fi>
 
-ENV ETCD_VERSION 0.4.1
+ENV ETCD_VERSION 2.0.5
 
 RUN apt-get update \
  && apt-get install -y golang git \
