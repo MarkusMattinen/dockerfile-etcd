@@ -2,7 +2,7 @@
 FROM markusma/supervisord:trusty
 MAINTAINER Markus Mattinen <docker@gamma.fi>
 
-ENV DOCKERFILE_ETCD_VERSION 2.0.5
+ENV DOCKERFILE_ETCD_VERSION 2.0.10
 
 RUN cd /tmp \
  && wget https://github.com/coreos/etcd/releases/download/v$DOCKERFILE_ETCD_VERSION/etcd-v$DOCKERFILE_ETCD_VERSION-linux-amd64.tar.gz \
