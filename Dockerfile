@@ -1,6 +1,6 @@
 # etcd and supervisord on trusty
 FROM markusma/supervisord:trusty
-MAINTAINER Markus Mattinen <docker@gamma.fi>
+MAINTAINER Markus Mattinen <markus@gamma.fi>
 
 ENV DOCKERFILE_ETCD_VERSION 2.0.10
 
