@@ -3,15 +3,14 @@
 mkdir -p /data
 rm -rf /data/*
 
-localip=$(ip a show dev eth0 | grep 'inet ' | awk '{print $2}' | cut -d'/' -f1)
-export ETCD_NAME=${localip}
+export ETCD_NAME=$(hostname)
 export ETCD_DATA_DIR=/data
-export ETCD_ADVERTISE_CLIENT_URLS=http://${localip}:2379,http://${localip}:4001
-export ETCD_LISTEN_CLIENT_URLS=http://${localip}:2379,http://${localip}:4001
+export ETCD_ADVERTISE_CLIENT_URLS=http://$(hostname):2379,http://$(hostname):4001
+export ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379,http://0.0.0.0:4001
 export ETCD_INITIAL_ADVERTISE_PEER_URLS=http://localhost:2380
 export ETCD_LISTEN_PEER_URLS=http://localhost:2380
-export ETCD_INITIAL_CLUSTER_TOKEN=${localip}
-export ETCD_INITIAL_CLUSTER=${localip}=http://localhost:2380
+export ETCD_INITIAL_CLUSTER_TOKEN=$(hostname)
+export ETCD_INITIAL_CLUSTER=$(hostname)=http://localhost:2380
 export ETCD_INITIAL_CLUSTER_STATE=new
 
 exec /usr/bin/supervisord -c /etc/supervisor/supervisord.conf

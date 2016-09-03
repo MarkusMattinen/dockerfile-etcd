@@ -1,8 +1,7 @@
-# etcd and supervisord on trusty
 FROM markusma/supervisord:trusty
 MAINTAINER Markus Mattinen <markus@gamma.fi>
 
-ENV DOCKERFILE_ETCD_VERSION 2.0.10
+ENV DOCKERFILE_ETCD_VERSION 3.0.7
 
 RUN cd /tmp \
  && wget https://github.com/coreos/etcd/releases/download/v$DOCKERFILE_ETCD_VERSION/etcd-v$DOCKERFILE_ETCD_VERSION-linux-amd64.tar.gz \
@@ -15,5 +14,5 @@ RUN cd /tmp \
 ADD config/init /init
 ADD config/etc/supervisor/conf.d/etcd.conf /etc/supervisor/conf.d/etcd.conf
 
-EXPOSE 4001 7001
+EXPOSE 2379 2380 4001
 CMD ["/init"]
