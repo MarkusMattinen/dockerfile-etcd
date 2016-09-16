@@ -1,4 +1,4 @@
-FROM markusma/supervisord:trusty
+FROM markusma/supervisord:ubuntu-trusty
 MAINTAINER Markus Mattinen <markus@gamma.fi>
 
 ENV DOCKERFILE_ETCD_VERSION 3.0.7
